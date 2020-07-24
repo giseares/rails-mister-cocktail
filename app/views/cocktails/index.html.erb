@@ -1,0 +1,36 @@
+<div class="home-banner">
+  <h1>cocktails</h1>
+  <span id="banner-typed-text"></span>
+</div>
+<div class="row justify-content-center>
+  <div class="row">
+    <div class="col-4">
+      <% @cocktails.each do |cocktail|%>
+        <div class="card-product p-2 bd-highlight justify-content-center align-items-center">
+          <img src="https://images.unsplash.com/photo-1541288892379-c987c60cd049?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60" />
+          <div class="card-product-infos">
+            <h2><%= link_to cocktail.name, cocktail_path(cocktail.id) %> </h2>
+            <p>Ingredientes <strong> </strong> </p>
+            <% cocktail.doses.each do |dose| %>
+              <li>
+                <%= dose.description %>
+                <%= dose.ingredient.name %>
+              </li>
+              <% end %>
+          </div>
+          <%= link_to "", cocktail_path(cocktail), class: 'card-link' %>
+        </div>
+      <% end %>
+      <% raise %>
+    </div>  
+  </div>
+</div>
+
+
+
+
+
+
+<div class="row justify-content-center"> 
+  <%= link_to "Add a cocktail", new_cocktail_path, class: "btn btn-primary btn-lg" %>
+</div>
